@@ -97,3 +97,54 @@
         //remove  移除目標標籤
             let S = document.querySelector("h5");
             S.remove();
+
+        //style 設定style
+            //是element object 的其中一個 property
+            //任何包含 - 號的內容替換成大寫 ( ex: font-size 替換成 fontSize )
+            let W = document.querySelector("button");
+            console.log(W.style); //顯示h5內部含有的元素
+
+
+        /////////////////////////////////////////////////////////////////
+
+        //eventObject methods and properties
+            //target
+                let T = document.querySelector("h1.second");
+                T.addEventListener("click", element =>{
+                    console.log(element);           //回傳發生的事件(event object)
+                } )
+
+                let U = document.querySelector("h1.second");
+                U.addEventListener("click", element =>{
+                    console.log(element.target);    //回傳事件中element的目標
+                })
+            //preventDefault()  防止預設事件發生
+                let V = document.querySelector("button");
+                V.addEventListener("click", element =>{
+                    element.preventDefault();   //取消提交表單的動作
+                })
+                
+        //event bubble
+            let X = document.querySelector(".a");
+             let Y = document.querySelector(".b");
+            
+            X.addEventListener("click", ()=>{
+                alert("a");
+            })
+            Y.addEventListener("click", ()=>{
+                alert("b");
+            })
+
+            //因 a 為 b 的父層 因此點擊 b 時將一併觸發 a 
+
+            //event bubble 解決辦法 -> stopPropagation
+            let a = document.querySelector(".c");
+             let b = document.querySelector(".d");
+            
+            a.addEventListener("click", ()=>{
+                alert("c");
+            })
+            b.addEventListener("click", element=>{
+                element.stopPropagation();
+                alert("d");
+            })
