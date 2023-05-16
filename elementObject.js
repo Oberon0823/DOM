@@ -24,6 +24,9 @@
     console.log(E);//H1 P1 P2
     //NodeList is not an array
 
+
+//eventObject methods and properties
+
         //child & childNodes
             let F = document.querySelector("body");
             console.log("children");
@@ -104,25 +107,21 @@
             let W = document.querySelector("button");
             console.log(W.style); //顯示h5內部含有的元素
 
+        //target
+            let T = document.querySelector("h1.second");
+            T.addEventListener("click", element =>{
+                console.log(element);           //回傳發生的事件(event object)
+            } )
 
-        /////////////////////////////////////////////////////////////////
-
-        //eventObject methods and properties
-            //target
-                let T = document.querySelector("h1.second");
-                T.addEventListener("click", element =>{
-                    console.log(element);           //回傳發生的事件(event object)
-                } )
-
-                let U = document.querySelector("h1.second");
-                U.addEventListener("click", element =>{
-                    console.log(element.target);    //回傳事件中element的目標
-                })
-            //preventDefault()  防止預設事件發生
-                let V = document.querySelector("button");
-                V.addEventListener("click", element =>{
-                    element.preventDefault();   //取消提交表單的動作
-                })
+            let U = document.querySelector("h1.second");
+            U.addEventListener("click", element =>{
+                console.log(element.target);    //回傳事件中element的目標
+            })
+        //preventDefault()  防止預設事件發生
+            let V = document.querySelector("button");
+            V.addEventListener("click", element =>{
+                element.preventDefault();   //取消提交表單的動作
+            })
                 
         //event bubble
             let X = document.querySelector(".a");
